@@ -1,0 +1,54 @@
+import { Component } from 'react';
+import './App.css';
+import logo from './logo.svg';
+
+class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      name: {firstName: 'Waqar', lastName: 'Shah'},
+      company: 'Tkxel',
+    };
+    this.state = {
+      monster1: {
+        name: 'Arnold'
+      },
+      monster2: {
+        name: 'Linda'
+      },
+      monster3: {
+        name: 'Steve'
+      },
+    }
+  }
+  render(){
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Hi {this.state.name.firstName} {this.state.name.lastName}, I work at {this.state.company}
+          </p>
+          <button onClick={() => {
+            //this.setState({name: {firstName: 'Awais', lastName: 'Rauf'}});
+            this.setState(() => {
+              return {
+                name: {firstName: 'Awais', lastName: 'Rauf'}
+              }
+            }, () => {
+              console.log(this.state);
+            });
+          }}>change name</button>
+        </header>
+        <div>
+        <h1>
+        the heading inside app . js
+        </h1>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App;
